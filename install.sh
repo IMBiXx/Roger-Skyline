@@ -74,7 +74,7 @@ echo "$_PURPLE==================================================================
 echo "$_PURPLE            UPDATE SCRIPT"
 
 mkdir /root/scripts
-cp scripts/script_log.sh /root/scripts/
+cp /root/roger-skyline/scripts/script_log.sh /root/scripts/
 chmod 755 /root/scripts/script_log.sh
 chown root /root/scripts/script_log.sh
 
@@ -88,7 +88,7 @@ echo "\n"
 echo "$_PURPLE==================================================================$_DEF\n"
 echo "$_PURPLE            CRONTAB SCRIPT"
 
-cp scripts/script_crontab.sh /root/scripts/
+cp /root/roger-skyline/scripts/script_crontab.sh /root/scripts/
 chmod 755 /root/scripts/script_crontab.sh
 chown root /root/scripts/script_crontab.sh
 
