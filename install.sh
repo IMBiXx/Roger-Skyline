@@ -49,19 +49,19 @@ echo "\n"
 echo "$_PURPLE==================================================================$_DEF\n"
 echo "$_PURPLE            FIREWALL"
 
-sh scripts/firewall.sh
+sh /root/roger-skyline/scripts/firewall.sh
 
 echo "\n"
 echo "$_PURPLE==================================================================$_DEF\n"
 echo "$_PURPLE            DDOS PROTECTION"
 
-sh scripts/ddos.sh
+sh /root/roger-skyline/scripts/ddos.sh
 
 echo "\n"
 echo "$_PURPLE==================================================================$_DEF\n"
 echo "$_PURPLE            PORTS SCAN"
 
-sh scripts/ports.sh
+sh /root/roger-skyline/scripts/ports.sh
 
 echo "\n"
 echo "$_PURPLE==================================================================$_DEF\n"
