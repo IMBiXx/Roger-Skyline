@@ -24,11 +24,11 @@ git clone https://github.com/IMBiXx/Roger-Skyline.git /root/roger-skyline
 echo "$_PURPLE==================================================================$_DEF\n"
 echo "$_PURPLE            user creation..."
 echo "\n"
-echo "Adding sudo user... Username ? (default: 'valentin')"
+echo "Adding sudo user... Username ? (default: 'roger')"
 read Username
-Username=${Username:-"valentin"}
-adduser $Username
-adduser $Username sudo
+Username=${Username:-"roger"}
+sudo adduser $Username
+sudo adduser $Username sudo
 
 echo "\n"
 echo "$_PURPLE==================================================================$_DEF\n"
@@ -40,7 +40,7 @@ cp /root/roger-skyline/files/interfaces /etc/network
 
 cp /root/roger-skyline/files/enp0s3 /etc/network/interfaces.d/
 
-service networking restart
+sudo service networking restart
 
 echo "\n"
 echo "$_PURPLE==================================================================$_DEF\n"
@@ -118,7 +118,6 @@ chmod -R 775 /var/www/init.login.fr
 
 cp /root/roger-skyline/files/index.html /var/www/init.login.fr/html/
 
-cp /etc/apache2/sites-available/init.login.fr.conf /etc/apache2/sites-available/init.login.fr.conf_save
 cp /root/roger-skyline/files/init.login.fr.conf /etc/apache2/sites-available/
 
 rm /etc/apache2/sites-enabled/000-default.conf
@@ -131,5 +130,5 @@ echo "$_PURPLE            SSL CERTIFICAT"
 cd /etc/ssl/certs/
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout roger.key -out roger.crt
 
-a2enmod ssl
-service apache2 restart
+sudo a2enmod ssl
+sudo service apache2 restart
