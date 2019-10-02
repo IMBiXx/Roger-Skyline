@@ -1,6 +1,6 @@
 echo "$_PURPLE==================================================================$_DEF\n"
 echo "$_PURPLE            debian disk infos :"
-fdisk -l
+sudo fdisk -l
 
 echo "\n"
 echo "$_PURPLE==================================================================$_DEF\n"
