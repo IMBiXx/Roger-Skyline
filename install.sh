@@ -58,6 +58,8 @@ echo "\n"
 cp /etc/ssh/sshd_config /etc/ssh/sshd_config_save
 rm -rf /etc/ssh/sshd_config
 cp /root/roger-skyline/files/sshd_config /etc/ssh/
+mkdir -pv /home/$Username/.ssh
+cat /root/roger-skyline/files/id_rsa.pub >> /home/$Username/.ssh/authorized_keys
 
 /etc/init.d/ssh restart
 
