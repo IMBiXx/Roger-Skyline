@@ -8,8 +8,8 @@ sudo iptables -t filter -P FORWARD DROP
 sudo iptables -t filter -P OUTPUT DROP
 
 # Garder les connexions etablies
-sudo iptables -A INPUT -m conntrack --state RELATED,ESTABLISHED -j ACCEPT
-sudo iptables -A OUTPUT -m conntrack --state RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A INPUT -m conntrack --cstate RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A OUTPUT -m conntrack --cstate RELATED,ESTABLISHED -j ACCEPT
 
 # Autoriser loopback
 sudo iptables -t filter -A INPUT -i lo -j ACCEPT
