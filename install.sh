@@ -156,6 +156,6 @@ echo "$_PURPLE==================================================================
 echo "$_PURPLE            CLEANING"
 echo "\n"
 
-apt-get remove git
+apt-get remove -y git
 rm -rf /root/roger-skyline/
 echo "Work done."
