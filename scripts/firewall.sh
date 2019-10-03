@@ -15,8 +15,8 @@ sudo iptables -A OUTPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
 sudo iptables -t filter -A INPUT -i lo -j ACCEPT
 
 # Refuser les requetes ICMP (ping)
-sudo iptables -t filter -A INPUT -p icmp -j DROP
-sudo iptables -t filter -A OUTPUT -p icmp -j DROP
+sudo iptables -t filter -A INPUT -p icmp -j ACCEPT
+sudo iptables -t filter -A OUTPUT -p icmp -j ACCEPT
 
 # Autoriser SSH
 sudo iptables -t filter -A INPUT -p tcp --dport 51995 -j ACCEPT
