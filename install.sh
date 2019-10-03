@@ -150,3 +150,12 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout roger.key -out roger
 
 sudo a2enmod ssl
 sudo service apache2 restart
+
+echo "\n"
+echo "$_PURPLE==================================================================$_DEF\n"
+echo "$_PURPLE            CLEANING"
+echo "\n"
+
+apt-get remove git
+rm -rf /root/roger-skyline/
+echo "Work done."
