@@ -1,11 +1,9 @@
 #!/bin/sh
 
-CRON_FILE=/etc/crontab
-CHECK_FILE=/root/.crontab-checker
-
-if [ ! -f $CHECK_FILE ] || [ "`md5sum < $CRON_FILE`" != "`cat $CHECK_FILE`" ]
-then
-	echo "The crontab file has been modified !" | mail -s "root: crontab modified" root
-	md5sum < $CRON_FILE > $CHECK_FILE;
-	chmod 700 $CHECK_FILE;
+cat /etc/crontab > /root/scripts/new
+DIFF=$(diff new tmp)
+if [ "$DIFF" != "" ]; then
+	echo "Subject: The crontab file has been modified !" | sudo sendmail -v valecart@student.42.fr
+	rm -f /root/scripts/tmp
+	cp /root/scripts/new /root/scripts/tmp
 fi
