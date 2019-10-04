@@ -11,6 +11,7 @@ echo "\n"
 apt-get install -y sudo
 apt-get install -y git
 apt-get install -y apache2
+apt-get install -y sendmail
 
 echo "\n"
 echo "$_PURPLE==================================================================$_DEF\n"
@@ -93,6 +94,13 @@ apt-get install -y iptables-persistent
 
 echo "\n"
 echo "$_PURPLE==================================================================$_DEF\n"
+echo "$_PURPLE            MAIL SERVER"
+echo "\n"
+
+yes 'Y' | sudo sendmailconfig
+
+echo "\n"
+echo "$_PURPLE==================================================================$_DEF\n"
 echo "$_PURPLE            UPDATE SCRIPT"
 echo "\n"
 
@@ -161,3 +169,4 @@ echo "\n"
 apt-get remove -y git
 rm -rf /root/roger-skyline/
 echo "Work done."
+echo "Subject: Install done for $Username." | sudo sendmail -v valecart@student.42.fr

@@ -36,3 +36,6 @@ sudo iptables -t filter -A INPUT -p tcp --dport 53 -j ACCEPT
 sudo iptables -t filter -A INPUT -p udp --dport 53 -j ACCEPT
 sudo iptables -t filter -A OUTPUT -p tcp --dport 53 -j ACCEPT
 sudo iptables -t filter -A OUTPUT -p udp --dport 53 -j ACCEPT
+
+# Autoriser SMTP
+sudo iptables -t filter -A OUTPUT -p tcp --dport 25 -j ACCEPT
