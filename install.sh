@@ -168,5 +168,5 @@ echo "\n"
 
 apt-get remove -y git
 rm -rf /root/roger-skyline/
-echo "Work done."
 echo "Subject: Install done for $Username." | sudo sendmail -v valecart@student.42.fr
+echo "Work done."
