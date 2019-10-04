@@ -1,12 +1,12 @@
-echo "$_PURPLE==================================================================$_DEF\n"
-echo "$_PURPLE            updating..."
+echo "==================================================================\n"
+echo "            updating..."
 echo "\n"
 apt-get -y update
 apt-get -y upgrade
 
 echo "\n"
-echo "$_PURPLE==================================================================$_DEF\n"
-echo "$_PURPLE            installing package..."
+echo "==================================================================\n"
+echo "            installing package..."
 echo "\n"
 apt-get install -y sudo
 apt-get install -y git
@@ -14,22 +14,22 @@ apt-get install -y apache2
 apt-get install -y sendmail
 
 echo "\n"
-echo "$_PURPLE==================================================================$_DEF\n"
-echo "$_PURPLE            debian disk infos :"
+echo "==================================================================\n"
+echo "            debian disk infos :"
 echo "\n"
 sudo fdisk -l
 
 echo "\n"
-echo "$_PURPLE==================================================================$_DEF\n"
-echo "$_PURPLE            installing folder..."
+echo "==================================================================\n"
+echo "            installing folder..."
 echo "\n"
 
 cd /root
 git clone https://github.com/IMBiXx/Roger-Skyline.git /root/roger-skyline
 
 echo "\n"
-echo "$_PURPLE==================================================================$_DEF\n"
-echo "$_PURPLE            user creation..."
+echo "==================================================================\n"
+echo "            user creation..."
 echo "\n"
 
 echo "Adding sudo user... Username ? (default: 'roger')"
@@ -39,8 +39,8 @@ sudo adduser $Username
 sudo adduser $Username sudo
 
 echo "\n"
-echo "$_PURPLE==================================================================$_DEF\n"
-echo "$_PURPLE            INTERFACES"
+echo "==================================================================\n"
+echo "            INTERFACES"
 echo "\n"
 
 cp /etc/network/interfaces /etc/network/interfaces_save
@@ -52,8 +52,8 @@ cp /root/roger-skyline/files/enp0s3 /etc/network/interfaces.d/
 sudo service networking restart
 
 echo "\n"
-echo "$_PURPLE==================================================================$_DEF\n"
-echo "$_PURPLE            SSHD_CONFIG"
+echo "==================================================================\n"
+echo "            SSHD_CONFIG"
 echo "\n"
 
 cp /etc/ssh/sshd_config /etc/ssh/sshd_config_save
@@ -65,43 +65,46 @@ cat /root/roger-skyline/files/id_rsa.pub >> /home/$Username/.ssh/authorized_keys
 /etc/init.d/ssh restart
 
 echo "\n"
-echo "$_PURPLE==================================================================$_DEF\n"
-echo "$_PURPLE            FIREWALL"
+echo "==================================================================\n"
+echo "            FIREWALL"
 echo "\n"
 
 sh /root/roger-skyline/scripts/firewall.sh
+echo "done."
 
 echo "\n"
-echo "$_PURPLE==================================================================$_DEF\n"
-echo "$_PURPLE            DDOS PROTECTION"
+echo "==================================================================\n"
+echo "            DDOS PROTECTION"
 echo "\n"
 
 sh /root/roger-skyline/scripts/ddos.sh
+echo "done."
 
 echo "\n"
-echo "$_PURPLE==================================================================$_DEF\n"
-echo "$_PURPLE            PORTS SCAN"
+echo "==================================================================\n"
+echo "            PORTS SCAN"
 echo "\n"
 
 sh /root/roger-skyline/scripts/ports.sh
+echo "done."
 
 echo "\n"
-echo "$_PURPLE==================================================================$_DEF\n"
-echo "$_PURPLE            making the configuration persistent..."
+echo "==================================================================\n"
+echo "            making the configuration persistent..."
 echo "\n"
 
 apt-get install -y iptables-persistent
 
 echo "\n"
-echo "$_PURPLE==================================================================$_DEF\n"
-echo "$_PURPLE            MAIL SERVER"
+echo "==================================================================\n"
+echo "            MAIL SERVER"
 echo "\n"
 
 yes 'Y' | sudo sendmailconfig
 
 echo "\n"
-echo "$_PURPLE==================================================================$_DEF\n"
-echo "$_PURPLE            UPDATE SCRIPT"
+echo "==================================================================\n"
+echo "            UPDATE SCRIPT"
 echo "\n"
 
 mkdir /root/scripts
@@ -116,27 +119,31 @@ echo "0 4 * * wed root /root/scripts/script_log.sh\n" >> /var/spool/cron/crontab
 echo "@reboot root /root/scripts/script_log.sh\n" >> /var/spool/cron/crontabs/root
 
 echo "\n"
-echo "$_PURPLE==================================================================$_DEF\n"
-echo "$_PURPLE            CRONTAB SCRIPT"
+echo "==================================================================\n"
+echo "            CRONTAB SCRIPT"
 echo "\n"
 
 cp /root/roger-skyline/scripts/script_crontab.sh /root/scripts/
+cp /root/roger-skyline/scripts/mail_type.txt /root/scripts/
 chmod 755 /root/scripts/script_crontab.sh
 chown root /root/scripts/script_crontab.sh
+chown root /root/scripts/mail_type.txt
 
 echo "0 0 * * * root /root/scripts/script_crontab.sh\n" >> /etc/crontab
 echo "0 0 * * * root /root/scripts/script_crontab.sh\n" >> /var/spool/cron/crontabs/root
 
+cat /etc/crontab > /root/scripts/tmp
+
 echo "\n"
-echo "$_PURPLE==================================================================$_DEF\n"
-echo "$_PURPLE            WEB SERVER"
+echo "==================================================================\n"
+echo "            WEB SERVER"
 echo "\n"
 
 systemctl start apache2
 
 echo "\n"
-echo "$_PURPLE==================================================================$_DEF\n"
-echo "$_PURPLE            VIRTUAL HOST"
+echo "==================================================================\n"
+echo "            VIRTUAL HOST"
 echo "\n"
 
 mkdir -p /var/www/init.login.fr/html
@@ -151,8 +158,8 @@ rm /etc/apache2/sites-enabled/000-default.conf
 ln -s /etc/apache2/sites-available/init.login.fr.conf /etc/apache2/sites-enabled/
 
 echo "\n"
-echo "$_PURPLE==================================================================$_DEF\n"
-echo "$_PURPLE            SSL CERTIFICAT"
+echo "==================================================================\n"
+echo "            SSL CERTIFICAT"
 echo "\n"
 
 cd /etc/ssl/certs/
@@ -162,8 +169,8 @@ sudo a2enmod ssl
 sudo service apache2 restart
 
 echo "\n"
-echo "$_PURPLE==================================================================$_DEF\n"
-echo "$_PURPLE            CLEANING"
+echo "==================================================================\n"
+echo "            CLEANING"
 echo "\n"
 
 apt-get remove -y git
