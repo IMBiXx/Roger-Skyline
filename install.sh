@@ -157,6 +157,7 @@ chown -R $Username:$Username /var/www/init.login.fr/html
 chmod -R 775 /var/www/init.login.fr
 
 cp /root/roger-skyline/files/index.html /var/www/init.login.fr/html/
+cp -r /root/roger-skyline/files/assets /var/www/init.login.fr/html/
 
 cp /root/roger-skyline/files/init.login.fr.conf /etc/apache2/sites-available/
 

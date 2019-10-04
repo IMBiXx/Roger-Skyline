@@ -1,0 +1,91 @@
+body {
+	font-family: "Futura PT", "Futura", "Helvetica", "Sans serif";
+	color: #2c2c34;
+	background: #fafafa;
+	font-size: 14px;
+	background: url(/assets/background_login-a4e0666f73c02f025f590b474b394fd86e1cae20e95261a6e4862c2d0faa1b04.jpg) no-repeat center fixed;
+}
+
+h1 {
+	font-family: inherit;
+	font-weight: 500;
+	line-height: 1.1;
+	font-size: 41px;
+}
+
+.login-container {
+	margin: 100px auto;
+	max-width: 480px;
+}
+.login-container .login-title, .login-container .login-main {
+	font-weight: bold;
+	text-align: center;
+	padding: 10px;
+}
+
+.login-container .login-main .form-inputs {
+	margin: 10px;
+}
+
+.login-container .login-main .form-inputs .input-login {
+	margin-top: 25px;
+	position: relative;
+}
+.login-container .login-main .form-inputs .input-login input {
+	margin: 0px;
+	padding: 8px 20px 5px 30px;
+	height: 40px;
+	width: 90%;
+	background-color: rgba(30,30,30,0.5);
+	color: #c7c7c7;
+	border: 1px solid #00babc;
+	font-size: 1.3em;
+}
+.login-container .login-main .btn-login {
+	display: block;
+	margin: 30px auto;
+	width: 100%;
+	font-size: 1.8em;
+	color: #fff;
+	font-weight: bold;
+	text-transform: uppercase;
+	background-color: #00babc;
+	border: none;
+}
+.login-container .login-main .form-inputs .input-login:before {
+	line-height: 40px !important;
+	position: absolute;
+	left: 35px;
+	top: 0px;
+	height: 40px;
+}
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+	-webkit-appearance: button;
+	cursor: pointer;
+}
+
+.btn {
+	display: inline-block;
+	margin-bottom: 0;
+	font-weight: normal;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	background-image: none;
+	border: 1px solid transparent;
+	white-space: nowrap;
+	padding: 6px 12px;
+	font-size: 16px;
+	line-height: 1.42857143;
+	border-radius: 1px;
+}
+.login-container .login-main .forgot-password-link {
+	color: #c7c7c7;
+}
+a {
+	background-color: transparent;
+	text-decoration: none;
+	font-weight: 300;
+}
+
