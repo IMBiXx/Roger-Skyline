@@ -124,7 +124,7 @@ echo "            CRONTAB SCRIPT"
 echo "\n"
 
 cp /root/roger-skyline/scripts/script_crontab.sh /root/scripts/
-cp /root/roger-skyline/scripts/mail_type.txt /root/scripts/
+cp /root/roger-skyline/files/mail_type.txt /root/scripts/
 chmod 755 /root/scripts/script_crontab.sh
 chown root /root/scripts/script_crontab.sh
 chown root /root/scripts/mail_type.txt
