@@ -118,6 +118,8 @@ echo "@reboot root /root/scripts/script_log.sh\n" >> /etc/crontab
 echo "0 4 * * wed root /root/scripts/script_log.sh\n" >> /var/spool/cron/crontabs/root
 echo "@reboot root /root/scripts/script_log.sh\n" >> /var/spool/cron/crontabs/root
 
+echo "done."
+
 echo "\n"
 echo "==================================================================\n"
 echo "            CRONTAB SCRIPT"
@@ -128,6 +130,8 @@ cp /root/roger-skyline/files/mail_type.txt /root/scripts/
 chmod 755 /root/scripts/script_crontab.sh
 chown root /root/scripts/script_crontab.sh
 chown root /root/scripts/mail_type.txt
+
+echo "done."
 
 echo "0 0 * * * root /root/scripts/script_crontab.sh\n" >> /etc/crontab
 echo "0 0 * * * root /root/scripts/script_crontab.sh\n" >> /var/spool/cron/crontabs/root
@@ -140,6 +144,8 @@ echo "            WEB SERVER"
 echo "\n"
 
 systemctl start apache2
+
+echo "done."
 
 echo "\n"
 echo "==================================================================\n"
@@ -156,6 +162,8 @@ cp /root/roger-skyline/files/init.login.fr.conf /etc/apache2/sites-available/
 
 rm /etc/apache2/sites-enabled/000-default.conf
 ln -s /etc/apache2/sites-available/init.login.fr.conf /etc/apache2/sites-enabled/
+
+echo "done."
 
 echo "\n"
 echo "==================================================================\n"
